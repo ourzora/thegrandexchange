@@ -79,8 +79,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(data);
 
-  console.log({tokenInfo, data})
-
   return {
     props: {
       id,

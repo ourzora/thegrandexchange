@@ -65,6 +65,7 @@ export const mediaConfigurationStyles = {
       grid-template-rows: auto auto;
       padding: var(--base-unit);
       border: 1px solid var(--yellow);
+      color: var(--yellow);
       * {
         text-align: center;
       }
@@ -77,6 +78,7 @@ export const mediaConfigurationStyles = {
       margin: var(--space-sm) 0;
       font-size: var(--text-02);
       line-height: 1.25;
+      color: var(--yellow);
     `,
     fullTitle: () => css`
       font-size: var(--text-04);
@@ -92,6 +94,7 @@ export const mediaConfigurationStyles = {
       padding: var(--space-sm);
       border: 1px solid var(--yellow);
       margin: 0 auto var(--space-sm);
+      color: var(--yellow);
     `,
     fullInfoProofAuthenticityContainer: () => css`
       padding: var(--space-sm) 0 0;
