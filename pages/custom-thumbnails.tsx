@@ -7,7 +7,7 @@ import {
   FetchStaticData,
   MediaFetchAgent,
   NetworkIDs,
-} from "@zoralabs/nft-hooks";
+} from "temp-nft-hooks";
 
 import { MediaThumbnailWrapper } from "@zoralabs/nft-components/dist/nft-preview/MediaThumbnailWrapper";
 import { NFTPreview, PreviewComponents } from "@zoralabs/nft-components";
@@ -96,7 +96,6 @@ export const getStaticProps: GetStaticProps = async () => {
     process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
   );
   const tokens = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    curatorAddress: process.env.NEXT_PUBLIC_CURATORS_ID as string,
     collectionAddress: process.env
       .NEXT_PUBLIC_TARGET_CONTRACT_ADDRESS as string,
     limit: 100,
