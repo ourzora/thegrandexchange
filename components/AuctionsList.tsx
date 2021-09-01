@@ -20,7 +20,7 @@ export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
                   `/token/${tokenInfo.tokenContract}/${tokenInfo.tokenId}`
                 )
               }
-              useBetaIndexer={false}
+              useBetaIndexer={true}
             />
           );
         })}

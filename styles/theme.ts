@@ -15,6 +15,20 @@ export const mediaConfigurationStyles = {
     `,
   },
   styles: {
+    cardOuter: () => css`
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--yellow);
+      background-color: var(--black);
+      margin: 15px;
+      width: 330px;
+      line-height: 24px;
+      font-family: Inter,Helvetica;
+      font-weight: 400;
+      -webkit-transition: -webkit-transform 0.1s ease-in-out;
+      transition: transform 0.1s ease-in-out;
+      position: relative;
+    `,
     cardAuctionPricing: () => css`
       color: var(--yellow);
       background: var(--black);
@@ -153,7 +167,7 @@ export const mediaConfigurationStyles = {
       margin: 0 0 var(--space-md);
     `,
     cardItemInfo: () => css`
-      padding: var(--space-sm) var(--space-sm) 0;
+      padding: var(--space-sm);
       display: flex;
       justify-content: center;
       font-size: 0.9em;
