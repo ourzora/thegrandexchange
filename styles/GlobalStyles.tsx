@@ -62,6 +62,7 @@ export default function GlobalStyles() {
         /* LAYOUT */
         body * {
           font-family: var(--font-a)!important;
+          color: #C6B66D
         }
 
         main {
