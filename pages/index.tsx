@@ -9,7 +9,7 @@ import {
   FetchStaticData,
   MediaFetchAgent,
   NetworkIDs,
-} from "@zoralabs/nft-hooks";
+} from "temp-nft-hooks";
 
 export default function Home({ tokens }: { tokens: any }) {
   return (
@@ -26,7 +26,6 @@ export const getStaticProps: GetStaticProps = async () => {
     process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
   );
   const tokens = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    curatorAddress: process.env.NEXT_PUBLIC_CURATORS_ID as string,
     collectionAddress: process.env
       .NEXT_PUBLIC_TARGET_CONTRACT_ADDRESS as string,
     limit: 100,

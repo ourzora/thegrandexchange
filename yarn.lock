@@ -6402,6 +6402,23 @@ tar@^4.0.2:
     safe-buffer "^5.2.1"
     yallist "^3.1.1"
 
+temp-nft-hooks@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/temp-nft-hooks/-/temp-nft-hooks-0.1.0.tgz#07126a981c63a5ea5072659bccad39e4c051a63a"
+  integrity sha512-BuZpKCcP5ARK8igpfXpAncpLvcBExsqD5ZRyiU9OSpcjLz81xmLpUPsMNnjbv+AkWaOepMawq5yQ9oY7GeAXFA==
+  dependencies:
+    "@ethersproject/address" "^5.4.0"
+    big.js "^6.1.0"
+    cross-fetch "^3.1.4"
+    dataloader "^2.0.0"
+    graphql "^15.5.0"
+    graphql-request "^3.4.0"
+    node-abort-controller "^2.0.0"
+    react "^17.0.2"
+    react-test-renderer "^17.0.2"
+    swr "^0.5.6"
+    tslib "^2.2.0"
+
 timed-out@^4.0.0, timed-out@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
