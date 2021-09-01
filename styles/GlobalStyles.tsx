@@ -8,17 +8,18 @@ export default function GlobalStyles() {
       styles={css`
         :root {
           /* COLORS */
+          --yellow: #e1bb34;
           --black: #000;
-          --white: #fff;
+          --brown: #2b1e0a;
           --bg-color: #f6f8fa;
           --overlay: rgba(0, 0, 0, 0.85);
           --overlay-light: rgba(0, 0, 0, 0.35);
-          --border-black: 1px solid var(--black);
+          --border-black: 1px solid var(--yellow);
           --border-light: 1px solid #dbdbdb;
 
           /* FONTS */
-          --font-a: Helvetica, Arial, sans-serif;
-          --font-b: Courier, monospace;
+          --font-a: 'Cinzel Decorative', cursive;;
+          --font-b: 'runescapeFont', Courier, monospace;
           
           /* SPACING */
           --base-unit: 8px;
@@ -68,6 +69,47 @@ export default function GlobalStyles() {
           overflow-x: hidden;
           position: relative;
           min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+          background: url(https://www.runescape.com/img/rs3/background-main-full-width.jpg) repeat-y 0 125px;
+          background-size: 100%;
+          background-position: 0 334px;
+          
+          ::after {
+            content: '';
+            display: block;
+            left: 0;
+            height: 52px;
+            width: 100%;
+            box-shadow: 0px -4px 15px #000;
+            background: transparent url(https://www.runescape.com/img/rs3/large_break.jpg) repeat-x 0 0;
+            clear: both;
+          }
+        }
+        
+        header {
+            background: #071b25 url(https://www.runescape.com/img/rs3/background-main.jpg) repeat 0 0;
+            
+            ::before {
+              content: '';
+              background: transparent url(https://www.runescape.com/img/rs3/main_sprite2.png) no-repeat 0 -245px;
+              width: 175px;
+              height: 56px;
+              position: absolute;
+              z-index: 1;
+              bottom: -20px;
+              left: 0;
+            }
+            
+            ::after {
+              content: '';
+              background: transparent url(https://www.runescape.com/img/rs3/main_sprite2.png) no-repeat 0 -245px;
+              width: 175px;
+              height: 56px;
+              position: absolute;
+              z-index: 1;
+              bottom: -20px;
+              right: 0;
+              transform: scaleX(-1);
+            }
         }
 
         header,
@@ -80,7 +122,7 @@ export default function GlobalStyles() {
           padding: 0 var(--space-md);
           a {
             text-decoration: none;
-            color: var(--black);
+            color: var(--yellow);
             &.active {
               text-decoration: underline;
             }
@@ -93,6 +135,7 @@ export default function GlobalStyles() {
         /* TYPOGRPAHY */
         h1,h2,h3,h4,h5,h6 {
           font-weight: 500;
+          color: var(--yellow);
         }
         h1 {
           font-size: var(--text-05);
@@ -155,6 +198,36 @@ export default function GlobalStyles() {
             ${buttonStyle};
             margin-bottom: 15px;
           }
+        }
+        .list-component-wrapper {
+          background: var(--black);
+          border-top: var(--yellow) 1px solid !important; //lol
+        }
+
+        footer {
+          background: url(https://www.runescape.com/img/rs3/parchment.jpg);
+          overflow: visible;
+          flex-direction: column;
+          padding-top: 40px;
+          
+          a {
+            color: var(--brown);
+          }
+        }
+        
+        .zora-wallet-modalText {
+          background: var(--black) !important;
+        }
+        .zora--auction-house-modalInner {
+          background: var(--black) !important;
+          color: var(--yellow) !important;
+        }
+        .zora-wallet-walletOptionsList {
+          background: var(--black) !important;
+          color: var(--yellow) !important;
+        }
+        .zora-wallet-walletOption {
+          background: var(--yellow) !important;
         }
       `}
     />

@@ -13,7 +13,7 @@ import Head from "../../../components/head";
 const styles = {
   theme: {
     lineSpacing: 24,
-    linkColor: "var(--black)",
+    linkColor: "var(--yellow)",
   },
 };
 
@@ -47,10 +47,9 @@ export default function Piece({
       >
         <PageWrapper>
           <NFTFullPage
-            useBetaIndexer={true}
+            useBetaIndexer={false}
             contract={query.contract as string}
             id={query.id as string}
-            initialData={initialData}
           />
         </PageWrapper>
       </MediaConfiguration>
@@ -77,7 +76,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     collectionAddress: contract,
   });
 
+
   const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(data);
+
+  console.log({tokenInfo, data})
 
   return {
     props: {

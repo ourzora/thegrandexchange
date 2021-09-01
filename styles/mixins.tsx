@@ -73,8 +73,8 @@ export const buttonInit = css`
 export const buttonStyle = css`
   ${buttonInit};
   border: var(--border-black);
-  color: var(--white);
-  background-color: var(--black);
+  color: var(--black);
+  background-color: var(--yellow);
   margin: 0 auto;
   position: relative;
   display: block;
@@ -83,8 +83,8 @@ export const buttonStyle = css`
   border-radius: 50rem;
   text-align: center;
   ${media.hover`
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--yellow);
+    color: var(--black);
   `}
 `
 

@@ -108,8 +108,6 @@ const RenderOwnedList = ({ account }: { account: string }) => {
       <NFTPreview
         id={tokenInfo.tokenId}
         contract={tokenInfo.tokenContract}
-        initialData={token}
-        useBetaIndexer={true}
         key={`${tokenInfo.tokenContract}-${tokenInfo.tokenId}`}
       >
         <div className="owned-list-item">
@@ -135,12 +133,11 @@ const MediaThumbnailPreview = ({
     <NFTPreview
       id={tokenId}
       contract={tokenContract}
-      useBetaIndexer={true}
     >
       <div className="owned-list-item">
         <PreviewComponents.MediaThumbnail />
         <div className="list-component-wrapper">
-          <ListItemComponent />
+          {/*<ListItemComponent />*/}
         </div>
       </div>
     </NFTPreview>

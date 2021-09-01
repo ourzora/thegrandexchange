@@ -12,7 +12,6 @@ export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
           const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(token);
           return (
             <NFTPreview
-              initialData={token}
               key={tokenInfo.tokenId}
               id={tokenInfo.tokenId}
               contract={tokenInfo.tokenContract}
@@ -21,7 +20,7 @@ export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
                   `/token/${tokenInfo.tokenContract}/${tokenInfo.tokenId}`
                 )
               }
-              useBetaIndexer={true}
+              useBetaIndexer={false}
             />
           );
         })}

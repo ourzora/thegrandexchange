@@ -3,16 +3,28 @@ import * as mixins from './mixins'
 
 export const mediaConfigurationStyles = {
   theme: {
+    linkColor: 'var(--yellow)',
+    borderStyle: '1px solid var(--yellow)',
     /*
     lineSpacing: 20,
-    linkColor: 'var(--black)',
-    borderStyle: '1px solid var(--black)',
     defaultBorderRadius: 0,
     maximumPricingDecimals: 2,
     */
+    cardOuter: () => css`
+      color: var(--yellow);
+    `,
   },
   styles: {
-    /*
+    cardAuctionPricing: () => css`
+      color: var(--yellow);
+      background: var(--black);
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: auto auto;
+      grid-auto-column: 1fr;
+      padding: 10px 15px;
+      border-top: 1px solid var(--yellow);
+    `,
     fullMediaWrapper: () => css`
       margin: 0;
       position: relative;
@@ -52,7 +64,7 @@ export const mediaConfigurationStyles = {
       grid-auto-flow: column;
       grid-template-rows: auto auto;
       padding: var(--base-unit);
-      border: 1px solid var(--black);
+      border: 1px solid var(--yellow);
       * {
         text-align: center;
       }
@@ -71,14 +83,14 @@ export const mediaConfigurationStyles = {
       padding: var(--base-unit) 0;
     `,
     fullLabel: () => css`
-      color: var(--black);
+      color: var(--yellow);
       font-family: var(--font-b)!important;
       text-transform: uppercase;
       font-size: var(--text-03);
     `,
     infoContainer: () => css`
       padding: var(--space-sm);
-      border: 1px solid var(--black);
+      border: 1px solid var(--yellow);
       margin: 0 auto var(--space-sm);
     `,
     fullInfoProofAuthenticityContainer: () => css`
@@ -91,7 +103,7 @@ export const mediaConfigurationStyles = {
       padding-top: 5px;
     `,
     fullPageHistoryItemDatestamp: () => css`
-      color: var(--black);
+      color: var(--yellow);
       font-size: var(--text-01);
       padding-top: 5px;
     `,
@@ -110,7 +122,7 @@ export const mediaConfigurationStyles = {
       padding: 0 0 5px;
       margin-bottom: var(--space-sm);
       font-size: var(--text-01);
-      border-bottom: 1px dotted var(--black);
+      border-bottom: 1px dotted var(--yellow);
       &:last-of-type {
         border-bottom: 0;
       }
@@ -145,6 +157,8 @@ export const mediaConfigurationStyles = {
       * {
         text-align: center;
       }
+      background: var(--black);
+      color: var(--yellow);
     `,
     fullPageHistoryItemDescription: () => css`
       font-size: var(--text-01);
@@ -159,6 +173,6 @@ export const mediaConfigurationStyles = {
         ${mixins.absoluteFullCentered};
         object-fit: cover;
       }
-    `*/
+    `
   }
 }
