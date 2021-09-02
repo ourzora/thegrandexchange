@@ -46,7 +46,7 @@ export const TokenThumbnail = ({
       }
     : {};
   return (
-    <TokenWrapper className={`token-wrapper ${getAuctionStatusClassName(tokenAuctions, token.nft.auctionData)} ${returnAuctionState()}`}>
+    <TokenWrapper className={`token-wrapper ${getAuctionStatusClassName(tokenAuctions)} ${returnAuctionState()}`}>
       <NFTPreview
         key={tokenInfo.tokenId}
         id={tokenInfo.tokenId}
