@@ -6,7 +6,6 @@ import { MediaThumbnailWrapper } from "@zoralabs/nft-components/dist/nft-preview
 import { NFTPreview, PreviewComponents } from "@zoralabs/nft-components";
 
 import { getAuctionStatusClassName } from "../../utils/getAuctionsStatusClassName";
-import { ThumbnailImage } from "../../styles/components";
 import { media, buttonStyle, absoluteCentered } from "../../styles/mixins";
 
 import {
@@ -27,6 +26,17 @@ export const TokenThumbnail = ({
 
   const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(token);
 
+  const returnAuctionState = () => {
+    // console.log(token.nft.auctionData)
+    if (token.nft.auctionData === undefined) {
+      return 'not-listed'
+    } else if (token.nft.auctionData !== undefined && token.nft.auctionData.currentBid !== null) {
+      return 'Live'
+    } else {
+      return token.nft.auctionData.status
+    }
+  }
+  
   const wrapperLink = linkDetails
     ? {
         onClick: (evt: SyntheticEvent) => {
@@ -37,7 +47,7 @@ export const TokenThumbnail = ({
       }
     : {};
   return (
-    <TokenWrapper className={`token-wrapper ${getAuctionStatusClassName(tokenAuctions)}`}>
+    <TokenWrapper className={`token-wrapper ${getAuctionStatusClassName(tokenAuctions, token.nft.auctionData)} ${returnAuctionState()}`}>
       <NFTPreview
         key={tokenInfo.tokenId}
         id={tokenInfo.tokenId}
@@ -45,14 +55,14 @@ export const TokenThumbnail = ({
         useBetaIndexer={false}
       >
         <ThumbnailWrapper
-          className={`thumbnail-wrapper ${getAuctionStatusClassName(tokenAuctions)}`}
+          className={`thumbnail-wrapper`}
           {...wrapperLink}
         >
           <MediaThumbnailWrapper {...wrapperLink}>
             <div className="info-wrapper">
               <PreviewComponents.MediaThumbnail/>
             </div>
-            <div className={`bottom-thumb-wrapper ${getAuctionStatusClassName(tokenAuctions)}`}>
+            <div className={`bottom-thumb-wrapper`}>
               {tokenAuctions.length ?
                 <PreviewComponents.PricingComponent />
                 : <div className="list-token">Yours? List It Here!</div>
@@ -66,13 +76,26 @@ export const TokenThumbnail = ({
 }
 
 const TokenWrapper = styled.div`
-  &.not-listed {
+  .zora-cardAuctionPricing {
+    background-color: var(--yellow)!important;
+    border-color: var(--yellow);
+  }
+  &.not-listed.not-listed,
+  &.not-listed.Finished {
     order: 2;
-    .thumbnail-image {
-      opacity: 0.65;
+    .zora-cardMediaWrapper {
+      opacity: 0.65!important;
     }
     .zora-cardLink:before {
       content: 'Click to List!'!important;
+    }
+    .list-token {
+      background-color: var(--black);
+      color: #FFF!important;
+      border-top: var(--border-yellow)!important;
+      * {
+        color: #FFF!important;
+      }
     }
   }
   &.listed {
@@ -87,31 +110,31 @@ const TokenWrapper = styled.div`
       }
     }
   }
-  &.ended {
+  &.listed.Finished {
     order: -1;
     .zora-cardAuctionPricing {
-      background-color: var(--black)!important;
+      background-color: var(--yellow)!important;
       border-color: var(--yellow);
     }
     .zora-cardLink:before {
       content: 'Bid History'!important;
-      background-color: var(--black)!important;
+      background-color: var(--yellow)!important;
     }
   }
   &.unclaimed {
     order: 0;
     .zora-cardAuctionPricing {
-      background-color: var(--red)!important;
+      background-color: var(--yellow)!important;
     }
     .zora-cardLink:before {
       content: 'Unclaimed!'!important;
-      background-color: var(--red)!important;
+      background-color: var(--yellow)!important;
     }
   }
-  &.auction-live {
+  &.listed.Live {
     order: -2;
     .zora-cardAuctionPricing {
-      background-color: var(--white)!important;
+      background-color: var(--yellow)!important;
     }
     .zora-cardLink:before {
       content: 'Bid Now!'!important;

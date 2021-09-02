@@ -7,12 +7,14 @@ import {
 } from "temp-nft-hooks";
 
 export const Auctions = ({ tokens }: { tokens: any[] }) => {
+  console.log('7658', tokens.find((token) => token.nft.tokenData.tokenId === '7658').nft.auctionData)
+  console.log('5318', tokens.find((token) => token.nft.tokenData.tokenId === '5318').nft.auctionData)
   return (
     <TokenListWrapper>
       {tokens &&
         tokens.map((token) => {
           const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(token);
-          console.log(tokens.find((token) => token.nft.tokenData.tokenId === '6953'))
+          
           return (
             <TokenThumbnail
               token={token}

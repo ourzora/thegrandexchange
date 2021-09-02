@@ -158,6 +158,7 @@ export const mediaConfigurationStyles = {
       border: 1px solid var(--yellow);
       margin: 0 auto var(--space-sm);
       color: var(--yellow);
+      width: 100%;
     `,
     fullInfoProofAuthenticityContainer: () => css`
       padding: var(--space-sm) 0 0;
@@ -167,6 +168,7 @@ export const mediaConfigurationStyles = {
     fullPageHistoryTxnLink: () => css`
       font-size: var(--text-01);
       padding-top: 5px;
+      color: var(--yellow);
     `,
     fullPageHistoryItemDatestamp: () => css`
       color: var(--yellow);

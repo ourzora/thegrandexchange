@@ -1,10 +1,10 @@
-export const getAuctionStatusClassName = (auctions: any) => {
+export const getAuctionStatusClassName = (auctions: any, auctionData: any) => {
   if (auctions.length) {
     const auction = auctions[0]
     // CHECK: Ended Date < Current Date
     const currentDate = new Date()
     const endedDate = auction.expiresAt !== null && new Date(auction.expiresAt)
-
+    
     const unclaimed =
       endedDate !== false && endedDate.getTime() < currentDate.getTime()
       && auction.winner === null
@@ -20,9 +20,7 @@ export const getAuctionStatusClassName = (auctions: any) => {
       return 'unclaimed'
     } else if (auction.winner !== null && !unclaimed) {
       return 'ended'
-    } else if (auction.status === "Finished") {
-      return 'ended'
-    }
+    } 
   } else {
     return 'not-listed'
   }
