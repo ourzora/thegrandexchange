@@ -15,6 +15,54 @@ export const mediaConfigurationStyles = {
     `,
   },
   styles: {
+    cardAuctionPricing: () => css`
+      font-family: var(--font-a)!important;
+      text-transform: uppercase!important;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: var(--base-unit);
+      border: var(--border-white);
+      margin-top: var(--space-sm);
+      padding: var(--base-unit);
+      // border-radius: var(--base-unit);
+      height: 70px;
+      font-size: 18px;
+    `,
+    cardItemInfo: () => css`
+      padding: var(--space-sm) var(--space-sm) 0;
+      display: grid;
+      grid-row-gap: 5px;
+      font-size: var(--text-01);
+      * {
+        text-align: left;
+        color: var(--white)!important;
+        opacity: 1!important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      ${mixins.media.laptop`
+        justify-content: flex-end;
+      `}
+    `,
+    cardOuter: () => css`
+      width: 100%;
+    `,
+    cardMediaWrapper: () => css`
+      width: 100%;
+      position: relative;
+      height: 0;
+      padding-bottom: 100%;
+      overflow-y: visible;
+      * {
+        color: var(--white)!important;
+      }
+      img {
+        ${mixins.absoluteFullCentered};
+        object-fit: cover;
+      }
+    `,
+    
+    /*
     cardOuter: () => css`
       overflow: hidden;
       border-radius: 4px;
@@ -64,6 +112,7 @@ export const mediaConfigurationStyles = {
       height: 100%;
       object-fit: contain;
     `,
+    */
     mediaLoader: () => css`
       ${mixins.absoluteFullCentered};
       z-index: 0;

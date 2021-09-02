@@ -15,6 +15,7 @@ export default function GlobalStyles() {
           --overlay: rgba(0, 0, 0, 0.85);
           --overlay-light: rgba(0, 0, 0, 0.35);
           --border-black: 1px solid var(--yellow);
+          --border-yellow: 1px solid var(--yellow);
           --border-light: 1px solid #dbdbdb;
 
           /* FONTS */

@@ -40,25 +40,24 @@ const TokenThumbnail = ({
     : {};
   return (
     <NFTPreview
-        key={`${token.tokenContract}-${token.tokenId}`}
-        contract={token.tokenContract}
-        id={token.tokenId}
-        initialData={token}
-        useBetaIndexer={true}
+      contract={token.tokenContract}
+      id={token.tokenId}
+      initialData={token}
+      useBetaIndexer={true}
+    >
+      <ThumbnailWrapper
+        key={token.tokenId}
+        className={getAuctionStatusClassName(nft.auctions)}
+        {...wrapperLink}
       >
-        <ThumbnailWrapper
-          key={token.tokenId}
-          className={getAuctionStatusClassName(nft.auctions)}
-          {...wrapperLink}
-        >
-          <MediaThumbnailWrapper {...wrapperLink}>
-            <PreviewComponents.MediaThumbnail />
-            {listed && (
-              <PreviewComponents.PricingComponent />
-            )}
-          </MediaThumbnailWrapper>
-        </ThumbnailWrapper>
-      </NFTPreview>
+        <MediaThumbnailWrapper {...wrapperLink}>
+          <PreviewComponents.MediaThumbnail />
+          {listed && (
+            <PreviewComponents.PricingComponent />
+          )}
+        </MediaThumbnailWrapper>
+      </ThumbnailWrapper>
+    </NFTPreview>
   )
 }
 

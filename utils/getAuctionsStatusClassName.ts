@@ -20,6 +20,8 @@ export const getAuctionStatusClassName = (auctions: any) => {
       return 'unclaimed'
     } else if (auction.winner !== null && !unclaimed) {
       return 'ended'
+    } else if (auction.status === "Finished") {
+      return 'ended'
     }
   } else {
     return 'not-listed'
