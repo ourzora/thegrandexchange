@@ -24,7 +24,6 @@ export const mediaConfigurationStyles = {
       border: var(--border-white);
       margin-top: var(--space-sm);
       padding: var(--base-unit);
-      // border-radius: var(--base-unit);
       height: 70px;
       font-size: 18px;
     `,
@@ -217,30 +216,5 @@ export const mediaConfigurationStyles = {
     fullInfoCreatorEquityContainer: () => css`
       margin: 0 0 var(--space-md);
     `,
-    cardItemInfo: () => css`
-      padding: var(--space-sm);
-      display: flex;
-      justify-content: center;
-      font-size: 0.9em;
-      * {
-        text-align: center;
-      }
-      background: var(--black);
-      color: var(--yellow);
-    `,
-    fullPageHistoryItemDescription: () => css`
-      font-size: var(--text-01);
-    `,
-    cardMediaWrapper: () => css`
-      width: 100%;
-      position: relative;
-      height: 0;
-      padding-bottom: 100%;
-      overflow-y: visible;
-      img {
-        ${mixins.absoluteFullCentered};
-        object-fit: cover;
-      }
-    `
   }
 }
