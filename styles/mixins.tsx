@@ -80,7 +80,7 @@ export const buttonStyle = css`
   display: block;
   padding: var(--base-unit) var(--space-md);
   font-size: var(--text-01);
-  border-radius: 50rem;
+  // border-radius: 50rem;
   text-align: center;
   ${media.hover`
     background-color: var(--yellow);
@@ -92,4 +92,20 @@ export const pixelScaleImage = css`
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+`
+
+export const listGrid = css`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--space-sm);
+  justify-content: center;
+  ${media.tablet`
+    grid-template-columns: 1fr 1fr;
+  `}
+  ${media.laptop`
+    grid-template-columns: 1fr 1fr 1fr;
+  `}
+  ${media.xl`
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  `}
 `

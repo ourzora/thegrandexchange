@@ -4,6 +4,7 @@ import { PageWrapper } from "../styles/components";
 import { GetStaticProps } from "next";
 
 import { AuctionsList } from "../components/AuctionsList";
+import { Auctions } from "../components/auctions";
 
 import {
   FetchStaticData,
@@ -16,7 +17,7 @@ export default function Home({ tokens }: { tokens: any }) {
     <IndexWrapper>
       <Head />
       <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
-      <AuctionsList tokens={tokens} />
+      <Auctions tokens={tokens} />
     </IndexWrapper>
   );
 }

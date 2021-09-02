@@ -19,9 +19,9 @@ export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
               onClick={() => {
                 router.push(
                   `/token/${tokenInfo.tokenContract}/${tokenInfo.tokenId}`
-                );
-              }}
-              useBetaIndexer={false}
+                )
+              }
+              useBetaIndexer={true}
             />
           );
         })}

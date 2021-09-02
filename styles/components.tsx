@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { absoluteFullCentered } from './mixins'
 
 export const PageWrapper = styled.section`
   margin: 0 auto;
@@ -14,4 +15,17 @@ export const PageWrapper = styled.section`
   //background-repeat: repeat-x;
   //background-position: 0 334px;
 
+`
+
+export const ThumbnailImage = styled.div`
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  margin: 0 auto;
+  overflow-y: visible;
+  position: relative;
+  img {
+    ${absoluteFullCentered};
+    object-fit: cover;
+  }
 `

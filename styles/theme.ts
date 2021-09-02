@@ -16,6 +16,67 @@ export const mediaConfigurationStyles = {
   },
   styles: {
     cardAuctionPricing: () => css`
+      font-family: var(--font-a)!important;
+      text-transform: uppercase!important;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: var(--base-unit);
+      border: var(--border-white);
+      margin-top: var(--space-sm);
+      padding: var(--base-unit);
+      height: 70px;
+      font-size: 18px;
+    `,
+    cardItemInfo: () => css`
+      padding: var(--space-sm) var(--space-sm) 0;
+      display: grid;
+      grid-row-gap: 5px;
+      font-size: var(--text-01);
+      * {
+        text-align: left;
+        color: var(--white)!important;
+        opacity: 1!important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      ${mixins.media.laptop`
+        justify-content: flex-end;
+      `}
+    `,
+    cardOuter: () => css`
+      width: 100%;
+    `,
+    cardMediaWrapper: () => css`
+      width: 100%;
+      position: relative;
+      height: 0;
+      padding-bottom: 100%;
+      overflow-y: visible;
+      * {
+        color: var(--white)!important;
+      }
+      img {
+        ${mixins.absoluteFullCentered};
+        object-fit: cover;
+      }
+    `,
+    
+    /*
+    cardOuter: () => css`
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--yellow);
+      background-color: var(--black);
+      margin: 15px;
+      width: 330px;
+      line-height: 24px;
+      font-family: Inter,Helvetica;
+      font-weight: 400;
+      -webkit-transition: -webkit-transform 0.1s ease-in-out;
+      transition: transform 0.1s ease-in-out;
+      position: relative;
+    `,
+    cardAuctionPricing: () => css`
       color: var(--yellow);
       background: var(--black);
       display: grid;
@@ -50,6 +111,7 @@ export const mediaConfigurationStyles = {
       height: 100%;
       object-fit: contain;
     `,
+    */
     mediaLoader: () => css`
       ${mixins.absoluteFullCentered};
       z-index: 0;
@@ -95,6 +157,7 @@ export const mediaConfigurationStyles = {
       border: 1px solid var(--yellow);
       margin: 0 auto var(--space-sm);
       color: var(--yellow);
+      width: 100%;
     `,
     fullInfoProofAuthenticityContainer: () => css`
       padding: var(--space-sm) 0 0;
@@ -104,6 +167,7 @@ export const mediaConfigurationStyles = {
     fullPageHistoryTxnLink: () => css`
       font-size: var(--text-01);
       padding-top: 5px;
+      color: var(--yellow);
     `,
     fullPageHistoryItemDatestamp: () => css`
       color: var(--yellow);
@@ -152,30 +216,5 @@ export const mediaConfigurationStyles = {
     fullInfoCreatorEquityContainer: () => css`
       margin: 0 0 var(--space-md);
     `,
-    cardItemInfo: () => css`
-      padding: var(--space-sm) var(--space-sm) 0;
-      display: flex;
-      justify-content: center;
-      font-size: 0.9em;
-      * {
-        text-align: center;
-      }
-      background: var(--black);
-      color: var(--yellow);
-    `,
-    fullPageHistoryItemDescription: () => css`
-      font-size: var(--text-01);
-    `,
-    cardMediaWrapper: () => css`
-      width: 100%;
-      position: relative;
-      height: 0;
-      padding-bottom: 100%;
-      overflow-y: visible;
-      img {
-        ${mixins.absoluteFullCentered};
-        object-fit: cover;
-      }
-    `
   }
 }
