@@ -1,4 +1,4 @@
-export const getAuctionStatusClassName = (auctions: any, auctionData: any) => {
+export const getAuctionStatusClassName = (auctions: any) => {
   if (auctions.length) {
     const auction = auctions[0]
     // CHECK: Ended Date < Current Date
