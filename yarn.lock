@@ -4422,6 +4422,13 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+loot-rarity@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/loot-rarity/-/loot-rarity-4.1.0.tgz#f2fa49049eee7b0ec369be055ab5f1d63c9a99d1"
+  integrity sha512-nJ9Now0zbti971R28K6KROyncFkRApn+pyXCA/3T+H6apbmww8fjJ2KnXZan8S+Kud3MbzF0B8B75iNSv1YQDA==
+  dependencies:
+    cross-fetch "^3.1.4"
+
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"

@@ -1,21 +1,22 @@
 import { FetchStaticData } from "@zoralabs/nft-hooks";
-import { NFTPreview } from "@zoralabs/nft-components";
+import { MediaConfiguration, NFTPreview } from "@zoralabs/nft-components";
 import { useRouter } from "next/router";
+
+import LootRarityRenderer from "./LootRarityRenderer";
 
 export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
   const router = useRouter();
-
   return (
     <div css={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-      {tokens &&
-        tokens.map((token) => {
+      <MediaConfiguration renderers={[LootRarityRenderer]}>
+        {tokens?.map((token) => {
           const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(token);
           return (
             <NFTPreview
               key={tokenInfo.tokenId}
               id={tokenInfo.tokenId}
               contract={tokenInfo.tokenContract}
-              onClick={(evt) =>
+              onClick={() => {
                 router.push(
                   `/token/${tokenInfo.tokenContract}/${tokenInfo.tokenId}`
                 )
@@ -24,6 +25,7 @@ export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
             />
           );
         })}
+      </MediaConfiguration>
     </div>
   );
 };
