@@ -18,6 +18,8 @@ export default function GlobalStyles() {
           --border-yellow: 1px solid var(--yellow);
           --border-light: 1px solid #dbdbdb;
 
+          --ease: cubic-bezier(0.7, 0, 0.3, 1);
+
           /* FONTS */
           --font-a: 'Cinzel Decorative', cursive;;
           --font-b: 'runescapeFont', Courier, monospace;
