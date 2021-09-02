@@ -15,6 +15,7 @@ export default function GlobalStyles() {
           --overlay: rgba(0, 0, 0, 0.85);
           --overlay-light: rgba(0, 0, 0, 0.35);
           --border-black: 1px solid var(--yellow);
+          --border-yellow: 1px solid var(--yellow);
           --border-light: 1px solid #dbdbdb;
 
           /* FONTS */
@@ -69,47 +70,44 @@ export default function GlobalStyles() {
           overflow-x: hidden;
           position: relative;
           min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
-          background: url(https://www.runescape.com/img/rs3/background-main-full-width.jpg) repeat-y 0 125px;
+          background: url('https://www.runescape.com/img/rs3/background-main-full-width.jpg') repeat-y 0 125px;
           background-size: 100%;
           background-position: 0 334px;
-          
-          ::after {
+          &:after {
             content: '';
             display: block;
             left: 0;
             height: 52px;
             width: 100%;
             box-shadow: 0px -4px 15px #000;
-            background: transparent url(https://www.runescape.com/img/rs3/large_break.jpg) repeat-x 0 0;
+            background: transparent url('https://www.runescape.com/img/rs3/large_break.jpg') repeat-x 0 0;
             clear: both;
           }
         }
         
         header {
-            background: #071b25 url(https://www.runescape.com/img/rs3/background-main.jpg) repeat 0 0;
-            
-            ::before {
-              content: '';
-              background: transparent url(https://www.runescape.com/img/rs3/main_sprite2.png) no-repeat 0 -245px;
-              width: 175px;
-              height: 56px;
-              position: absolute;
-              z-index: 1;
-              bottom: -20px;
-              left: 0;
-            }
-            
-            ::after {
-              content: '';
-              background: transparent url(https://www.runescape.com/img/rs3/main_sprite2.png) no-repeat 0 -245px;
-              width: 175px;
-              height: 56px;
-              position: absolute;
-              z-index: 1;
-              bottom: -20px;
-              right: 0;
-              transform: scaleX(-1);
-            }
+          background: #071b25 url('https://www.runescape.com/img/rs3/background-main.jpg') repeat 0 0;
+          &:before {
+            content: '';
+            background: transparent url('https://www.runescape.com/img/rs3/main_sprite2.png') no-repeat 0 -245px;
+            width: 175px;
+            height: 56px;
+            position: absolute;
+            z-index: 1;
+            bottom: -20px;
+            left: 0;
+          }
+          &:after {
+            content: '';
+            background: transparent url('https://www.runescape.com/img/rs3/main_sprite2.png') no-repeat 0 -245px;
+            width: 175px;
+            height: 56px;
+            position: absolute;
+            z-index: 1;
+            bottom: -20px;
+            right: 0;
+            transform: scaleX(-1);
+          }
         }
 
         header,
@@ -162,7 +160,8 @@ export default function GlobalStyles() {
         }
 
         /* CUSTOM */
-        .button {
+        .button,
+        .zora-button {
           ${buttonStyle};
         }
 
