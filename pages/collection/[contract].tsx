@@ -1,4 +1,4 @@
-import { NFTFullPage, MediaConfiguration } from "@zoralabs/nft-components";
+import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import {
   MediaFetchAgent,
@@ -9,6 +9,7 @@ import { GetServerSideProps } from "next";
 
 import { PageWrapper } from "../../styles/components";
 import Head from "../../components/head";
+import { Auctions } from "../../components/auctions";
 
 export default function Piece({
   contract,
@@ -23,9 +24,10 @@ export default function Piece({
       <Head
         title={`${contract}`}
       />
-      <PageWrapper>
-        <h1>{contract}</h1>
-      </PageWrapper>
+      <CollectionWrapper>
+        <h3>{contract}</h3>
+        <Auctions tokens={tokens} />
+      </CollectionWrapper>
     </main>
   );
 }
@@ -53,3 +55,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   };
 };
+
+const CollectionWrapper = styled(PageWrapper)`
+  max-width: var(--content-width-xl);
+  h3 {
+    text-align: center;
+  }
+`;
