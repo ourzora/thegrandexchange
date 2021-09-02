@@ -20,7 +20,7 @@ export const AuctionsList = ({ tokens }: { tokens: any[] }) => {
                 router.push(
                   `/token/${tokenInfo.tokenContract}/${tokenInfo.tokenId}`
                 )
-              }
+              }}
               useBetaIndexer={true}
             />
           );
