@@ -3,7 +3,7 @@ import { SyntheticEvent } from "react";
 import styled from "@emotion/styled/";
 
 import { MediaThumbnailWrapper } from "@zoralabs/nft-components/dist/nft-preview/MediaThumbnailWrapper";
-import { NFTPreview, PreviewComponents } from "@zoralabs/nft-components";
+import { MediaConfiguration, NFTPreview, PreviewComponents } from '@zoralabs/nft-components'
 
 import { getAuctionStatusClassName } from "../../utils/getAuctionsStatusClassName";
 import { media, buttonStyle, absoluteCentered } from "../../styles/mixins";
@@ -11,6 +11,7 @@ import { media, buttonStyle, absoluteCentered } from "../../styles/mixins";
 import {
   FetchStaticData,
 } from "temp-nft-hooks";
+import LootRarityRenderer from '../LootRarityRenderer'
 
 export const TokenThumbnail = ({
   token,
@@ -47,29 +48,31 @@ export const TokenThumbnail = ({
     : {};
   return (
     <TokenWrapper className={`token-wrapper ${getAuctionStatusClassName(tokenAuctions)} ${returnAuctionState()}`}>
-      <NFTPreview
-        key={tokenInfo.tokenId}
-        id={tokenInfo.tokenId}
-        contract={tokenInfo.tokenContract}
-        useBetaIndexer={false}
-      >
-        <ThumbnailWrapper
-          className={`thumbnail-wrapper`}
-          {...wrapperLink}
+      <MediaConfiguration renderers={[LootRarityRenderer]}>
+        <NFTPreview
+          key={tokenInfo.tokenId}
+          id={tokenInfo.tokenId}
+          contract={tokenInfo.tokenContract}
+          useBetaIndexer={false}
         >
-          <MediaThumbnailWrapper {...wrapperLink}>
-            <div className="info-wrapper">
-              <PreviewComponents.MediaThumbnail/>
-            </div>
-            <div className={`bottom-thumb-wrapper`}>
-              {tokenAuctions.length ?
-                <PreviewComponents.PricingComponent />
-                : <div className="list-token">Yours? List It Here!</div>
-              }
-            </div>
-          </MediaThumbnailWrapper>
-        </ThumbnailWrapper>
-      </NFTPreview>
+          <ThumbnailWrapper
+            className={`thumbnail-wrapper`}
+            {...wrapperLink}
+          >
+            <MediaThumbnailWrapper {...wrapperLink}>
+              <div className="info-wrapper">
+                <PreviewComponents.MediaThumbnail/>
+              </div>
+              <div className={`bottom-thumb-wrapper`}>
+                {tokenAuctions.length ?
+                  <PreviewComponents.PricingComponent />
+                  : <div className="list-token">Yours? List It Here!</div>
+                }
+              </div>
+            </MediaThumbnailWrapper>
+          </ThumbnailWrapper>
+        </NFTPreview>
+      </MediaConfiguration>
     </TokenWrapper>
   )
 }

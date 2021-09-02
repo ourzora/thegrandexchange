@@ -9,7 +9,7 @@ import { GetServerSideProps } from "next";
 
 import { PageWrapper } from "../../../styles/components";
 import Head from "../../../components/head";
-import LootRarityRenderer from "../../../components/LootRarityRenderer"
+// import LootRarityRenderer from "../../../components/LootRarityRenderer"
 
 const styles = {
   theme: {
@@ -43,9 +43,9 @@ export default function Piece({
         ogImage={image}
       />
       <MediaConfiguration
-        networkId={process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs}
-        renderers={[LootRarityRenderer]}
-        style={styles}
+        // networkId={process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs}
+        // renderers={[LootRarityRenderer]}
+        // style={styles}
       >
         <PageWrapper>
           <NFTFullPage
