@@ -6,11 +6,11 @@ import { PageWrapper } from '../styles/components'
 
 export default function About() {
   return (
-    <>
+    <main>
       <Head title={'About'} />
       <PageWrapper>
         <Markdown markdown={readMe}/>
       </PageWrapper> 
-    </>
+    </main>
   )
 }

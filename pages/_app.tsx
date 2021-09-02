@@ -41,9 +41,7 @@ export default function CreateAuctionHouseApp({
           style={mediaConfigurationStyles}
         >
           <Header />
-          <main>
-            <Component {...pageProps} />
-          </main>
+          <Component {...pageProps} />
           <Footer />
         </MediaConfiguration>
       </Web3ConfigProvider>

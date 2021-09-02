@@ -2,8 +2,6 @@ import styled from "@emotion/styled";
 import Head from "../components/head";
 import { PageWrapper } from "../styles/components";
 import { GetStaticProps } from "next";
-
-import { AuctionsList } from "../components/AuctionsList";
 import { Auctions } from "../components/auctions";
 
 import {
@@ -13,12 +11,16 @@ import {
 } from "temp-nft-hooks";
 
 export default function Home({ tokens }: { tokens: any }) {
+  console.log(JSON.parse(process.env.NEXT_PUBLIC_CONTRACT_ARRAY as any))
+  
   return (
-    <IndexWrapper>
-      <Head />
-      <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
-      <Auctions tokens={tokens} />
-    </IndexWrapper>
+    <main>
+      <IndexWrapper>
+        <Head />
+        <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
+        <Auctions tokens={tokens} />
+      </IndexWrapper>
+    </main>
   );
 }
 
@@ -26,9 +28,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const fetchAgent = new MediaFetchAgent(
     process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
   );
+
   const tokens = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    collectionAddress: process.env
-      .NEXT_PUBLIC_TARGET_CONTRACT_ADDRESS as string,
+    collectionAddress: process.env.NEXT_PUBLIC_TARGET_CONTRACT_ADDRESS as string,
     limit: 100,
     offset: 0,
   });

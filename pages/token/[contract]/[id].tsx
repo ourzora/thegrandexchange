@@ -35,7 +35,7 @@ export default function Piece({
   const { query } = useRouter();
 
   return (
-    <>
+    <main>
       <Head
         title={`${name} | ${APP_TITLE}`}
         description={description}
@@ -53,7 +53,7 @@ export default function Piece({
           />
         </PageWrapper>
       </MediaConfiguration>
-    </>
+    </main>
   );
 }
 

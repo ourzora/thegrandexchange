@@ -87,6 +87,7 @@ export default function GlobalStyles() {
         
         header {
           background: #071b25 url('https://www.runescape.com/img/rs3/background-main.jpg') repeat 0 0;
+          z-index: 100;
           &:before {
             content: '';
             background: transparent url('https://www.runescape.com/img/rs3/main_sprite2.png') no-repeat 0 -245px;
@@ -160,9 +161,26 @@ export default function GlobalStyles() {
         }
 
         /* CUSTOM */
-        .button,
-        .zora-button {
+        .button {
           ${buttonStyle};
+        }
+        
+        .zora-button {
+          color: #000;
+          width: 477px;
+          height: 200px;
+          text-align: center;
+          background: url('https://www.runescape.com/img/rs3/../microsite/sprite.png') no-repeat -1924px 0;
+          text-shadow: 1px 1px 2px #fff;
+          font-family: "cinzel";
+          font-weight: 600;
+          font-size: var(--text-04)!important;
+          padding: 18px 0 0;
+          transform: scale(0.6);
+          z-index: 50;
+          background: url('https://www.runescape.com/img/rs3/../microsite/sprite-btn.png') no-repeat 0 0;
+          height: 56px;
+          margin: 0 auto!important;
         }
 
         /* ZORA SPECIFIC -- CLEAN UP

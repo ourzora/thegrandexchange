@@ -147,7 +147,7 @@ const MediaThumbnailPreview = ({
 export default function List() {
   const { active, account } = useWeb3Wallet();
   return (
-    <>
+    <main>
       <Head title="List" />
       <AuctionManager
         renderMedia={MediaThumbnailPreview}
@@ -165,7 +165,7 @@ export default function List() {
           }
         </ListWrapper>
       </AuctionManager>
-    </>
+    </main>
   );
 }
 
