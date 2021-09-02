@@ -27,7 +27,6 @@ export const TokenThumbnail = ({
   const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(token);
 
   const returnAuctionState = () => {
-    // console.log(token.nft.auctionData)
     if (token.nft.auctionData === undefined) {
       return 'not-listed'
     } else if (token.nft.auctionData !== undefined && token.nft.auctionData.currentBid !== null) {
