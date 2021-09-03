@@ -6,7 +6,13 @@ import {
   FetchStaticData,
 } from "temp-nft-hooks";
 
-export const Auctions = ({ tokens }: { tokens: any[] }) => {
+export const Auctions = ({
+  tokens,
+  useRarity = false
+}: {
+  tokens: any[];
+  useRarity?: boolean
+}) => {
   return (
     <TokenListWrapper>
       {tokens &&
@@ -15,6 +21,7 @@ export const Auctions = ({ tokens }: { tokens: any[] }) => {
           return (
             <TokenThumbnail
               token={token}
+              useRarity={useRarity}
               key={`${tokenInfo.tokenContract}-${tokenInfo.tokenId}`}
             />
           );
