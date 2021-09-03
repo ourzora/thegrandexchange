@@ -42,10 +42,14 @@ const LoadingOrErrorText = styled.div`
   margin-bottom: 25px;
 `;
 
+const ETHText = styled.span`
+  color: var(--yellow);
+`;
+
 const Stat = (props: { title: string; info: FloorInfo}) => {
   const { title, info } = props;
   return <StatContainer>
-    {title}: <FloorPriceLink href={props.info.order.sale_link} target="_blank">{info.price} ETH</FloorPriceLink>
+    {title}: <FloorPriceLink href={props.info.order.sale_link} target="_blank"><ETHText>{info.price} ETH</ETHText></FloorPriceLink>
   </StatContainer>
 }
 
