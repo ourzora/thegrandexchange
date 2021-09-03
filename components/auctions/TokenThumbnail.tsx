@@ -86,6 +86,10 @@ const TokenWrapper = styled.div`
     background-color: var(--yellow)!important;
     border-color: var(--yellow);
   }
+  .zora-pricingAmount,
+  * {
+    font-size: 18px!important;
+  }
   &.not-listed.not-listed,
   &.not-listed.Finished {
     order: 2;
@@ -186,9 +190,10 @@ const ThumbnailWrapper = styled.div`
       ${buttonStyle};
       content: 'Start Bidding!';
       width: 200px;
-      height: 23px;
+      height: 22px;
       font-size: var(--text-01);
       border: 2px solid var(--white);
+      padding-bottom: 5px;
       ${absoluteCentered};
     }
     &:after {

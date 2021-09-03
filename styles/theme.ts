@@ -62,38 +62,39 @@ export const mediaConfigurationStyles = {
     fullCreatorOwnerSection: () => css`
       padding: 0;
       display: grid;
-      grid-auto-flow: column;
       grid-template-rows: auto auto;
       padding: var(--base-unit);
-      border: 1px solid var(--yellow);
       color: var(--yellow);
       * {
         text-align: center;
       }
     `,
     fullOwnerAddress: () => css`
-      padding-top: var(--space-sm);
+      padding: var(--base-unit) 0 var(--space-sm);
       font-size: var(--text-01);
     `,
     fullDescription: () => css`
       margin: var(--space-sm) 0;
       font-size: var(--text-02);
+      max-width: 720px;
+      margin: var(--space-sm) auto var(--space-md);
       line-height: 1.25;
       color: var(--yellow);
+      text-align: center;
+      text-transform: capitalize;
     `,
     fullTitle: () => css`
       font-size: var(--text-04);
       padding: var(--base-unit) 0;
     `,
     fullLabel: () => css`
-      color: var(--yellow);
-      font-family: var(--font-b)!important;
+      color: var(--yellow)!important;
+      font-family: var(--font-a)!important;
       text-transform: uppercase;
       font-size: var(--text-03);
     `,
     infoContainer: () => css`
       padding: var(--space-sm);
-      border: 1px solid var(--yellow);
       margin: 0 auto var(--space-sm);
       color: var(--yellow);
       width: 100%;
@@ -114,7 +115,11 @@ export const mediaConfigurationStyles = {
       padding-top: 5px;
     `,
     fullPageHistoryItemMeta: () => css`
-      padding-top: 10px;
+      padding-top: 5px;
+      padding-bottom: var(--base-unit)!important;
+      * {
+        font-size: 15px!important;
+      }
     `,
     fullProofLink: () => css`
       ${mixins.buttonStyle};
@@ -129,6 +134,9 @@ export const mediaConfigurationStyles = {
       margin-bottom: var(--space-sm);
       font-size: var(--text-01);
       border-bottom: 1px dotted var(--yellow);
+      * {
+        color: var(--yellow)!important;
+      }
       &:last-of-type {
         border-bottom: 0;
       }
@@ -155,5 +163,9 @@ export const mediaConfigurationStyles = {
     fullInfoCreatorEquityContainer: () => css`
       margin: 0 0 var(--space-md);
     `,
+    pricingAmount: () => css`
+      font-size: var(--text-03)!important;
+      color: var(--yellow)!important;
+    `
   }
 }

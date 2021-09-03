@@ -73,15 +73,16 @@ export const buttonInit = css`
 export const buttonStyle = css`
   ${buttonInit};
   border: var(--border-black);
-  color: var(--black);
+  color: black!important;
   background-color: var(--yellow);
   margin: 0 auto;
   position: relative;
   display: block;
   padding: var(--base-unit) var(--space-md);
   font-size: var(--text-01);
-  // border-radius: 50rem;
+  border-radius: 10px;
   text-align: center;
+  border: 4px inset var(--yellow);
   ${media.hover`
     background-color: var(--yellow);
     color: var(--black);
@@ -108,4 +109,16 @@ export const listGrid = css`
   ${media.xl`
     grid-template-columns: 1fr 1fr 1fr 1fr;
   `}
+`
+
+export const runeBorder = css`
+  content: '';
+  display: block;
+  left: 0;
+  right: 0;
+  height: 52px;
+  width: 100%;
+  box-shadow: 0px -4px 15px #000;
+  background: transparent url('https://www.runescape.com/img/rs3/large_break.jpg') repeat-x 0 0;
+  clear: both;
 `
