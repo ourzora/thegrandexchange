@@ -55,7 +55,7 @@ export const TokenThumbnail = ({
           key={tokenInfo.tokenId}
           id={tokenInfo.tokenId}
           contract={tokenInfo.tokenContract}
-          useBetaIndexer={false}
+          useBetaIndexer={true}
         >
           <ThumbnailWrapper
             className={`thumbnail-wrapper`}

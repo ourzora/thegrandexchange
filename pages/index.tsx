@@ -12,6 +12,8 @@ import {
   NetworkIDs,
 } from "temp-nft-hooks";
 
+import { AuctionsList } from '../components/AuctionsList';
+
 import { media } from '../styles/mixins';
 
 export default function Home({
@@ -47,6 +49,7 @@ export default function Home({
           {tokens && tokens.map((token: any) => {
             return (
               <div className={`collection-wrapper ${collection === token.symbol ? 'show' : 'hide'}`} key={token.slug}>
+                {/*<AuctionsList tokens={token.tokens}/>*/}
                 <Auctions tokens={token.tokens} useRarity={token.rarity} />
               </div>
             );
