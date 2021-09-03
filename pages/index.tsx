@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import styled from "@emotion/styled";
 import Head from "../components/head";
 import { PageWrapper } from "../styles/components";
 import { GetStaticProps } from "next";
 import { fetchContracts } from "../data/fetchContracts";
+import { fetchCollections } from "../data/fetchCollections";
 import { Auctions } from "../components/auctions";
-import {
-  FetchStaticData,
-  MediaFetchAgent,
-  NetworkIDs,
-} from "temp-nft-hooks";
-
 import { media } from '../styles/mixins';
 
 export default function Home({
   contracts,
-  tokens
+  collections,
 }: {
   contracts: any[],
-  tokens: any
+  collections: any[],
 }) {
-  const [collection, setCollection] = useState('LOOT');
+  const [currentCollection, setCurrentCollection] = useState('LOOT');
 
   return (
     <main>
@@ -33,9 +28,9 @@ export default function Home({
             return (
               <button
                 key={contract.address}
-                className={collection === contract.symbol ? 'active' : ''}
+                className={currentCollection === contract.symbol ? 'active' : ''}
                 onClick={() => {
-                  setCollection(contract.symbol)
+                  setCurrentCollection(contract.symbol)
                 }}
               >
                 {contract.name}
@@ -44,10 +39,10 @@ export default function Home({
           })}
         </Menu>
         <TokenList>
-          {tokens && tokens.map((token: any) => {
+          {collections && collections.map((collection: any) => {
             return (
-              <div className={`collection-wrapper ${collection === token.symbol ? 'show' : 'hide'}`} key={token.slug}>
-                <Auctions tokens={token.tokens} useRarity={token.rarity} />
+              <div className={`collection-wrapper ${currentCollection === collection.symbol ? 'show' : 'hide'}`} key={collection.address}>
+                <Auctions tokens={collection.tokens} useRarity={collection.rarity}/>
               </div>
             );
           })}
@@ -59,71 +54,12 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   const contracts = await fetchContracts();
-  
-  const fetchAgent = new MediaFetchAgent(
-    process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
-  );
-
-  // Dain TODO - make this dynamic.
-  const loot = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    collectionAddress: contracts[0].address as string,
-    limit: 60,
-    offset: 0,
-  });
-
-  const lootRealm = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    collectionAddress: contracts[1].address as string,
-    limit: 60,
-    offset: 0,
-  });
-
-  const ability = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    collectionAddress: contracts[2].address as string,
-    limit: 60,
-    offset: 0,
-  });
-
-  const settlements = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
-    collectionAddress: contracts[3].address as string,
-    limit: 60,
-    offset: 0,
-  });
-
-  const tokens = [
-    {
-      name: 'Loot',
-      slug: 'loot',
-      symbol: 'LOOT',
-      tokens: loot,
-      rarity: true
-    },
-    {
-      name: 'Realms (for Adventurers)',
-      symbol: 'LootRealm',
-      slug: 'realms',
-      tokens: lootRealm,
-      rarity: false
-    },
-    {
-      name: 'Ability Score',
-      symbol: 'SCORE',
-      slug: 'ability-score',
-      tokens: ability,
-      rarity: false
-    },
-    {
-      name: 'Settlements',
-      symbol: 'STL',
-      slug: 'settlements',
-      tokens: settlements,
-      rarity: false
-    }
-  ]
+  const collections = await fetchCollections();
   
   return {
     props: {
       contracts,
-      tokens
+      collections
     },
     revalidate: 60
   };
