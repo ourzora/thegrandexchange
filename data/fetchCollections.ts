@@ -27,8 +27,7 @@ export async function fetchCollections() {
         address: id.address,
         name: id.name,
         symbol: id.symbol,
-        tokens: response,
-        rarity: id.rarity
+        tokens: response
       };
     });
 

@@ -39,7 +39,7 @@ export default function GlobalStyles() {
 
           /* LAYOUT */
           --header-z: 100;
-          --header-height: calc(var(--base-unit) * 10);
+          --header-height: calc(var(--base-unit) * 12);
           --footer-height: calc(var(--base-unit) * 10);
           --content-width-md: 960px;
           --content-width-lg: ${returnBreakpoint('desktop')};
@@ -51,6 +51,7 @@ export default function GlobalStyles() {
           :root {
             --base-unit: 10px;
             --text-05: calc(var(--base-unit) * 6);
+            --header-height: calc(var(--base-unit) * 10);
           }
         `}
 

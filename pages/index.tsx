@@ -39,10 +39,10 @@ export default function Home({
           })}
         </Menu>
         <TokenList>
-          {collections && collections.map((collection: any) => {
+          {collections && collections.map((collection: any, index: number) => {
             return (
               <div className={`collection-wrapper ${currentCollection === collection.symbol ? 'show' : 'hide'}`} key={collection.address}>
-                <Auctions tokens={collection.tokens} useRarity={collection.rarity}/>
+                <Auctions tokens={collection.tokens} useRarity={index === 0 ? true : false}/>
               </div>
             );
           })}
@@ -79,8 +79,10 @@ const IndexWrapper = styled(PageWrapper)`
 const Menu = styled.menu`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: var(--space-lg);
+  padding: 0 var(--space-sm);
   button {
     border: 3px var(--yellow) outset;
     background-color: var(--yellow);
@@ -88,7 +90,8 @@ const Menu = styled.menu`
     font-size: var(--text-02);
     text-decoration: none;
     transition: transform 150ms var(--ease);
-    margin-right: var(--base-unit);
+    margin-right: var(--space-sm);
+    margin-bottom: var(--space-sm);
     cursor: pointer;
     &.active {
       filter: var(--golden-shadow);
@@ -96,12 +99,15 @@ const Menu = styled.menu`
     &:last-of-type {
       margin-right: 0;
     }
-    ${media.tablet`
+  }
+  ${media.tablet`
+    padding: 0 var(--space-sm);
+    button {
       font-size: var(--text-03);
       margin-right: var(--space-md);
       &:hover {
         transform: scale(1.05);
       }
-    `}
-  }
+    }
+  `}
 `
