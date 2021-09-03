@@ -133,7 +133,8 @@ const TokenWrapper = styled.div`
       background-color: var(--yellow)!important;
     }
   }
-  &.listed.Live {
+  &.listed.Live,
+  &.auction-live.Live {
     order: -2;
     .zora-cardAuctionPricing {
       background-color: var(--yellow)!important;
