@@ -68,7 +68,7 @@ const ConnectWallet = () => {
     <div>
       <h1>{`${
         connectedInfo === undefined
-          ? "To List your Tokens Connect your wallet!"
+          ? "To List your Loot Connect your wallet!"
           : connectedInfo
       }`}</h1>
       <button className="button" onClick={() => buttonAction()}>
