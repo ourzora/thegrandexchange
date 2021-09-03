@@ -16,6 +16,7 @@ module.exports = async (req: any, res: any) => {
 
   let tokens = []
   
+
   // Dain TODO - make this dynamic -> forEach async
   const loot = await FetchStaticData.fetchUserOwnedNFTs(
     fetchAgent,
