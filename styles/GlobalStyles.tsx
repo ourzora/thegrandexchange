@@ -21,8 +21,8 @@ export default function GlobalStyles() {
           --ease: cubic-bezier(0.7, 0, 0.3, 1);
 
           /* FONTS */
-          --font-a: 'Cinzel Decorative', cursive;;
-          --font-b: 'runescapeFont', Courier, monospace;
+          --font-a: 'Cinzel Decorative', cursive;
+          --font-b: 'Cinzel Decorative', cursive;
           
           /* SPACING */
           --base-unit: 8px;
@@ -166,24 +166,6 @@ export default function GlobalStyles() {
         /* CUSTOM */
         .button {
           ${buttonStyle};
-        }
-        
-        .zora-button {
-          color: #000;
-          width: 477px;
-          height: 200px;
-          text-align: center;
-          background: url('https://www.runescape.com/img/rs3/../microsite/sprite.png') no-repeat -1924px 0;
-          text-shadow: 1px 1px 2px #fff;
-          font-family: "cinzel";
-          font-weight: 600;
-          font-size: var(--text-04)!important;
-          padding: 18px 0 0;
-          transform: scale(0.6);
-          z-index: 50;
-          background: url('https://www.runescape.com/img/rs3/../microsite/sprite-btn.png') no-repeat 0 0;
-          height: 56px;
-          margin: 0 auto!important;
         }
 
         /* ZORA SPECIFIC -- CLEAN UP
