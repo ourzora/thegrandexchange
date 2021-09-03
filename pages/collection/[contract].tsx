@@ -35,7 +35,6 @@ export default function Piece({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await fetchContracts();
-  console.log(posts)
 
   const paths = posts.map((post: any) => ({
     params: { contract: post.address },
@@ -64,7 +63,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       contract,
       tokens
-    }
+    },
+    revalidate: 60
   };
 };
 
