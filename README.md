@@ -6,6 +6,6 @@ Loot is randomized adventurer gear generated and stored on chain. Stats, images,
 Sell your [loot](https://www.lootproject.com/) at the grand exchange.
 
 ### Credits
-The grand exchange was created with ⚔ by [@tbtstl](twitter.com/tbtstl)
+The grand exchange was created with ⚔ by [@tbtstl](https://www.twitter.com/tbtstl)
 
-Made possible by [@dhof](twitter.com/dhof)
+Made possible by [@dhof](https://www.twitter.com/dhof)
