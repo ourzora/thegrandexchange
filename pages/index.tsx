@@ -12,8 +12,6 @@ import {
   NetworkIDs,
 } from "temp-nft-hooks";
 
-import { AuctionsList } from '../components/AuctionsList';
-
 import { media } from '../styles/mixins';
 
 export default function Home({
@@ -49,7 +47,6 @@ export default function Home({
           {tokens && tokens.map((token: any) => {
             return (
               <div className={`collection-wrapper ${collection === token.symbol ? 'show' : 'hide'}`} key={token.slug}>
-                {/*<AuctionsList tokens={token.tokens}/>*/}
                 <Auctions tokens={token.tokens} useRarity={token.rarity} />
               </div>
             );
@@ -86,6 +83,12 @@ export const getStaticProps: GetStaticProps = async () => {
     offset: 0,
   });
 
+  const settlements = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
+    collectionAddress: contracts[3].address as string,
+    limit: 60,
+    offset: 0,
+  });
+
   const tokens = [
     {
       name: 'Loot',
@@ -106,6 +109,13 @@ export const getStaticProps: GetStaticProps = async () => {
       symbol: 'SCORE',
       slug: 'ability-score',
       tokens: ability,
+      rarity: false
+    },
+    {
+      name: 'Settlements',
+      symbol: 'STL',
+      slug: 'settlements',
+      tokens: settlements,
       rarity: false
     }
   ]

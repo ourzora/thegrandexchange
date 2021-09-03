@@ -15,16 +15,17 @@ export const mediaConfigurationStyles = {
       grid-row-gap: var(--base-unit);
       border: var(--border-white);
       padding: var(--base-unit);
-      margin-top: var(--space-sm);
+      margin-top: var(--base-unit);
       height: 70px;
       font-size: 18px;
     `,
     cardItemInfo: () => css`
-      padding: var(--space-sm) var(--space-sm) 0;
+      padding: var(--base-unit) var(--base-unit) 0;
       display: grid;
       grid-row-gap: 5px;
       font-size: var(--text-01);
       border-top: var(--border-yellow);
+      justify-content: flex-start;
       * {
         text-align: left;
         color: var(--yellow)!important;
@@ -32,9 +33,6 @@ export const mediaConfigurationStyles = {
         text-transform: uppercase;
         letter-spacing: 1px;
       }
-      ${mixins.media.laptop`
-        justify-content: flex-end;
-      `}
     `,
     cardOuter: () => css`
       width: 100%;
