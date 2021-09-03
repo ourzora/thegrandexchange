@@ -22,8 +22,7 @@ export default function Home({
   tokens: any
 }) {
   const [contract, setContract] = useState('LOOT');
-  
-  
+
   return (
     <main>
       <IndexWrapper>
@@ -36,7 +35,6 @@ export default function Home({
                 key={contract.address}
                 className={contract.symbol}
                 onClick={() => {
-                  console.log(contract.symbol)
                   setContract(contract.symbol)
                 }}
               >
