@@ -12,8 +12,6 @@ import {
   NetworkIDs,
 } from "temp-nft-hooks";
 
-import { AuctionsList } from '../components/AuctionsList';
-
 import { media } from '../styles/mixins';
 
 export default function Home({
@@ -49,7 +47,6 @@ export default function Home({
           {tokens && tokens.map((token: any) => {
             return (
               <div className={`collection-wrapper ${collection === token.symbol ? 'show' : 'hide'}`} key={token.slug}>
-                {/*<AuctionsList tokens={token.tokens}/>*/}
                 <Auctions tokens={token.tokens} useRarity={token.rarity} />
               </div>
             );
@@ -66,8 +63,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const fetchAgent = new MediaFetchAgent(
     process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
   );
-
-  console.log(contracts)
 
   // Dain TODO - make this dynamic.
   const loot = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {

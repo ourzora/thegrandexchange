@@ -50,7 +50,18 @@ module.exports = async (req: any, res: any) => {
     true
   );
 
-  tokens = [...loot, ...lootRealm, ...ability]
+  const settlements = await FetchStaticData.fetchUserOwnedNFTs(
+    fetchAgent,
+    {
+      collectionAddress: contracts[3].address as string || "",
+      userAddress: owner,
+      limit: 200,
+      offset: 0,
+    },
+    true
+  );
+
+  tokens = [...loot, ...lootRealm, ...ability, ...settlements]
 
   res.status(200).json({tokens});
 };
