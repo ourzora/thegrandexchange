@@ -24,12 +24,13 @@ export default function Home({
   
   const statsFetch = useSWR('loot-stats', fetchLootStats);
   const lootStats = statsFetch.data;
+  const lootStatsError = statsFetch.error ? true : false;
 
   return (
     <main>
       <HeroWrapper>
         <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
-        <Stats prices={lootStats} />
+        <Stats prices={lootStats} hasError={lootStatsError}/>
         <Menu>
           {contracts && contracts.map((contract: any) => {
             return (
