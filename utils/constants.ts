@@ -1,0 +1,1 @@
+export const ORDERS_API_BASE_URI = "https://orders-api.vercel.app/api";

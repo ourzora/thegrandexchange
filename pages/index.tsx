@@ -8,6 +8,10 @@ import { fetchContracts } from "../data/fetchContracts";
 import { fetchCollections } from "../data/fetchCollections";
 import { Auctions } from "../components/auctions";
 import { media } from '../styles/mixins';
+import useSWR from 'swr';
+import { ORDERS_API_BASE_URI } from '../utils/constants';
+import { fetchLootStats } from '../utils/loot_stats';
+import { Stats } from '../components/Stats';
 
 export default function Home({
   contracts,
@@ -17,12 +21,16 @@ export default function Home({
   collections: any[],
 }) {
   const [currentCollection, setCurrentCollection] = useState('LOOT');
+  
+  const statsFetch = useSWR('loot-stats', fetchLootStats);
+  const lootStats = statsFetch.data;
 
   return (
     <main>
       <IndexWrapper>
         <Head />
         <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
+        <Stats prices={lootStats}/>
         <Menu>
           {contracts && contracts.map((contract: any) => {
             return (
