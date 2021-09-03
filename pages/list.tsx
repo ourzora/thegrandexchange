@@ -68,7 +68,7 @@ const ConnectWallet = () => {
     <div>
       <h1>{`${
         connectedInfo === undefined
-          ? "To List your NFT Connect your wallet!"
+          ? "To List your Tokens Connect your wallet!"
           : connectedInfo
       }`}</h1>
       <button className="button" onClick={() => buttonAction()}>
@@ -96,7 +96,7 @@ const RenderOwnedList = ({ account }: { account: string }) => {
   if (data.tokens.length === 0) {
     return (
       <div className="owned-list-no-tokens">
-        <h2>We couldn’t find any NFTs you own 😢</h2>
+        <h2>☹︎ Your chest seems to be empty ☹︎</h2>
         <p>Make sure you’ve connected the correct wallet</p>
       </div>
     );
@@ -152,8 +152,8 @@ export default function List() {
       <AuctionManager
         renderMedia={MediaThumbnailPreview}
         strings={{
-          LIST_MEDIA_HEADER: "List your NFT",
-          LIST_MEDIA_DESCRIPTION: `Set the reserve price to list your NFT on ${process.env.NEXT_PUBLIC_APP_TITLE}`,
+          LIST_MEDIA_HEADER: "List your Token",
+          LIST_MEDIA_DESCRIPTION: `Set the reserve price to list your Token on ${process.env.NEXT_PUBLIC_APP_TITLE}`,
         }}
       >
         <ListWrapper>
@@ -180,6 +180,9 @@ const ListWrapper = styled(PageWrapper)`
   .owned-list-no-tokens {
     text-align: center;
     padding-top: var(--space-sm);
+    * {
+      color: var(--yellow);
+    }
   }
   .list-component-wrapper {
     padding: var(--base-unit) 0;

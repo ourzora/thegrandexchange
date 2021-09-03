@@ -21,7 +21,7 @@ export default function Home({
   contracts: any[],
   tokens: any
 }) {
-  const [contract, setContract] = useState('LOOT');
+  const [collection, setCollection] = useState('LOOT');
 
   return (
     <main>
@@ -33,9 +33,9 @@ export default function Home({
             return (
               <button
                 key={contract.address}
-                className={contract.symbol}
+                className={collection === contract.symbol ? 'active' : ''}
                 onClick={() => {
-                  setContract(contract.symbol)
+                  setCollection(contract.symbol)
                 }}
               >
                 {contract.name}
@@ -46,7 +46,7 @@ export default function Home({
         <TokenList>
           {tokens && tokens.map((token: any) => {
             return (
-              <div className={`collection-wrapper ${contract === token.symbol ? 'show' : 'hide'}`} key={token.slug}>
+              <div className={`collection-wrapper ${collection === token.symbol ? 'show' : 'hide'}`} key={token.slug}>
                 <Auctions tokens={token.tokens} useRarity={token.rarity} />
               </div>
             );
@@ -131,16 +131,19 @@ const Menu = styled.menu`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: var(--space-lg);
   button {
     border: 3px var(--yellow) outset;
     background-color: var(--yellow);
     color: var(--black);
     font-size: var(--text-02);
-    margin-bottom: var(--space-lg);
     text-decoration: none;
     transition: transform 150ms var(--ease);
     margin-right: var(--base-unit);
     cursor: pointer;
+    &.active {
+      filter: var(--golden-shadow);
+    }
     &:last-of-type {
       margin-right: 0;
     }

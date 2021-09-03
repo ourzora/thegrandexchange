@@ -17,7 +17,7 @@ export default function GlobalStyles() {
           --border-black: 1px solid var(--yellow);
           --border-yellow: 1px solid var(--yellow);
           --border-light: 1px solid #dbdbdb;
-
+          --golden-shadow: drop-shadow(0px 0px 20px var(--yellow));
           --ease: cubic-bezier(0.7, 0, 0.3, 1);
 
           /* FONTS */
@@ -89,7 +89,7 @@ export default function GlobalStyles() {
         
         header {
           background: #071b25 url('https://www.runescape.com/img/rs3/background-main.jpg') repeat 0 0;
-          z-index: 100;
+          z-index: 1000;
           &:before {
             content: '';
             background: transparent url('https://www.runescape.com/img/rs3/main_sprite2.png') no-repeat 0 -245px;

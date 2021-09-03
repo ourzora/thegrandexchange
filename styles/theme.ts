@@ -5,14 +5,6 @@ export const mediaConfigurationStyles = {
   theme: {
     linkColor: 'var(--yellow)',
     borderStyle: '1px solid var(--yellow)',
-    /*
-    lineSpacing: 20,
-    defaultBorderRadius: 0,
-    maximumPricingDecimals: 2,
-    */
-    cardOuter: () => css`
-      color: var(--yellow);
-    `,
   },
   styles: {
     cardAuctionPricing: () => css`
@@ -22,8 +14,8 @@ export const mediaConfigurationStyles = {
       grid-template-columns: 1fr 1fr;
       grid-row-gap: var(--base-unit);
       border: var(--border-white);
-      margin-top: var(--space-sm);
       padding: var(--base-unit);
+      margin-top: var(--space-sm);
       height: 70px;
       font-size: 18px;
     `,
@@ -32,9 +24,10 @@ export const mediaConfigurationStyles = {
       display: grid;
       grid-row-gap: 5px;
       font-size: var(--text-01);
+      border-top: var(--border-yellow);
       * {
         text-align: left;
-        color: var(--white)!important;
+        color: var(--yellow)!important;
         opacity: 1!important;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -60,58 +53,6 @@ export const mediaConfigurationStyles = {
         object-fit: cover;
       }
     `,
-    
-    /*
-    cardOuter: () => css`
-      overflow: hidden;
-      border-radius: 4px;
-      border: 1px solid var(--yellow);
-      background-color: var(--black);
-      margin: 15px;
-      width: 330px;
-      line-height: 24px;
-      font-family: Inter,Helvetica;
-      font-weight: 400;
-      -webkit-transition: -webkit-transform 0.1s ease-in-out;
-      transition: transform 0.1s ease-in-out;
-      position: relative;
-    `,
-    cardAuctionPricing: () => css`
-      color: var(--yellow);
-      background: var(--black);
-      display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: auto auto;
-      grid-auto-column: 1fr;
-      padding: 10px 15px;
-      border-top: 1px solid var(--yellow);
-    `,
-    fullMediaWrapper: () => css`
-      margin: 0;
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 100%;
-      overflow-y: visible;
-      img {
-        object-fit: contain;
-        ${mixins.absoluteFullCentered};
-      }
-      ${mixins.media.laptop`
-        height: 50vh;
-        min-height: 35rem;
-        max-height: 65rem;
-        padding-bottom: 0;
-      `}
-    `,
-    mediaObject: () => css`
-      z-index: 1;
-      position: relative;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    `,
-    */
     mediaLoader: () => css`
       ${mixins.absoluteFullCentered};
       z-index: 0;

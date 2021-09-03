@@ -80,6 +80,8 @@ export const TokenThumbnail = ({
 }
 
 const TokenWrapper = styled.div`
+  position: relative;
+  z-index: 10;
   .zora-cardAuctionPricing {
     background-color: var(--yellow)!important;
     border-color: var(--yellow);
