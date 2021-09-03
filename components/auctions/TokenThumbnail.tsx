@@ -16,9 +16,11 @@ import LootRarityRenderer from '../LootRarityRenderer'
 export const TokenThumbnail = ({
   token,
   linkDetails = true,
+  useRarity = false
 }: {
   token: any;
   linkDetails?: boolean;
+  useRarity?: boolean;
 }) => {
   const tokenAuctions = token.nft.tokenData.auctions
   const listed = tokenAuctions && tokenAuctions.length > 0;
@@ -48,7 +50,7 @@ export const TokenThumbnail = ({
     : {};
   return (
     <TokenWrapper className={`token-wrapper ${getAuctionStatusClassName(tokenAuctions)} ${returnAuctionState()}`}>
-      <MediaConfiguration renderers={[LootRarityRenderer]}>
+      <MediaConfiguration renderers={useRarity ? [LootRarityRenderer] : undefined}>
         <NFTPreview
           key={tokenInfo.tokenId}
           id={tokenInfo.tokenId}
@@ -78,6 +80,8 @@ export const TokenThumbnail = ({
 }
 
 const TokenWrapper = styled.div`
+  position: relative;
+  z-index: 10;
   .zora-cardAuctionPricing {
     background-color: var(--yellow)!important;
     border-color: var(--yellow);
