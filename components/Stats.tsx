@@ -35,6 +35,13 @@ const FloorPriceLink = styled.a`
   text-decoration: none;
 `;
 
+const LoadingOrErrorText = styled.div`
+  color: white;
+  text-align: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+`;
+
 const Stat = (props: { title: string; info: FloorInfo}) => {
   const { title, info } = props;
   return <StatContainer>
@@ -44,10 +51,15 @@ const Stat = (props: { title: string; info: FloorInfo}) => {
 
 export const Stats = (props: {
   prices: FloorPrices | undefined
+  hasError: boolean
 }) => {
-  const { prices } = props;
+  const { prices, hasError } = props;
+
+  if (hasError) {
+    return <LoadingOrErrorText>Error loading floor prices.</LoadingOrErrorText>;
+  }
   if (!prices) {
-    return <div/>;
+    return <LoadingOrErrorText>Loading floor prices...</LoadingOrErrorText>;
   } else {
     const now = Date.now() / 1000;
     const lastUpdatedInSeconds = now - prices.updated_at;
