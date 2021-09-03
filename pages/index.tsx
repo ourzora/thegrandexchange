@@ -6,9 +6,9 @@ import { fetchContracts } from "../data/fetchContracts";
 import Link from "next/link";
 
 export default function Home({
-  contractNav
+  contracts
 }: {
-  contractNav: any[]
+  contracts: any[]
 }) {
   return (
     <main>
@@ -16,7 +16,7 @@ export default function Home({
         <Head />
         <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
         <Menu>
-          {contractNav && contractNav.map((contract) => {
+          {contracts && contracts.map((contract) => {
             return (
               <Link
                 href={`/collection/${contract.address}`}
@@ -37,21 +37,11 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   const contracts = await fetchContracts();
-  const siteContracts = JSON.parse(process.env.NEXT_PUBLIC_CONTRACT_ARRAY as any)
-  
-  let contractNav: any = []
-  
-  siteContracts.forEach((contract: any) => {
-    const navItem = contracts.contracts.TokenContract.find((item: any) => item.address === contract)
-    if (navItem !== undefined) {
-      contractNav.push(navItem)
-    }
-  });
-
   return {
     props: {
-      contractNav
-    }
+      contracts
+    },
+    revalidate: 60
   };
 };
 

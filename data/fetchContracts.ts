@@ -30,14 +30,22 @@ async function fetchGraphQL() {
 }
 
 export function handleResponse(json: any) {
-  
+  let contractNav: any = []
+  const siteContracts = JSON.parse(process.env.NEXT_PUBLIC_CONTRACT_ARRAY as any)
+
   if (json.error) {
     console.error(JSON.stringify(json.error, null, 2));
     throw new Error("error");
+  } else if (json.data !== undefined) {
+    siteContracts.forEach((contract: any) => {
+      const navItem = json.data.TokenContract.find((item: any) => item.address === contract)
+      if (navItem !== undefined) {
+        contractNav.push(navItem)
+      }
+    });
   }
-  return {
-    contracts: json.data
-  };
+
+  return contractNav;
 }
 
 export async function fetchContracts() {
@@ -47,7 +55,6 @@ export async function fetchContracts() {
     console.error(await serverResponse.text());
     throw new Error("server error");
   }
-  console.log(serverResponse)
   
   const json = await serverResponse.json();
   return handleResponse(json);

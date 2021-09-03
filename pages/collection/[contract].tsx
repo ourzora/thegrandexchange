@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import { fetchContracts } from "../../data/fetchContracts";
 import {
   MediaFetchAgent,
   NetworkIDs,
   FetchStaticData,
 } from "@zoralabs/nft-hooks";
-import { GetServerSideProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 
 import { PageWrapper } from "../../styles/components";
 import Head from "../../components/head";
@@ -32,7 +33,18 @@ export default function Piece({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await fetchContracts();
+  console.log(posts)
+
+  const paths = posts.map((post: any) => ({
+    params: { contract: post.address },
+  }))
+
+  return { paths, fallback: false }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params?.contract || Array.isArray(params.contract)) {
     return { notFound: true };
   }
@@ -41,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const fetchAgent = new MediaFetchAgent(
     process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
   );
-  console.log(contract)
+
   const tokens = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
     collectionAddress: contract as string,
     limit: 60,
@@ -52,7 +64,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     props: {
       contract,
       tokens
-    },
+    }
   };
 };
 
