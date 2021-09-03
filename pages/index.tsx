@@ -7,7 +7,7 @@ import { GetStaticProps } from "next";
 import { fetchContracts } from "../data/fetchContracts";
 import { fetchCollections } from "../data/fetchCollections";
 import { Auctions } from "../components/auctions";
-import { media } from '../styles/mixins';
+import { media, runeBorder } from '../styles/mixins';
 import useSWR from 'swr';
 import { ORDERS_API_BASE_URI } from '../utils/constants';
 import { fetchLootStats } from '../utils/loot_stats';
@@ -28,8 +28,7 @@ export default function Home({
 
   return (
     <main>
-      <IndexWrapper>
-        <Head />
+      <HeroWrapper>
         <h1>{process.env.NEXT_PUBLIC_APP_TITLE}</h1>
         <Stats prices={lootStats} hasError={lootStatsError}/>
         <Menu>
@@ -47,6 +46,9 @@ export default function Home({
             );
           })}
         </Menu>
+      </HeroWrapper>
+      <IndexWrapper>
+        <Head />
         <TokenList>
           {collections && collections.map((collection: any, index: number) => {
             return (
@@ -73,6 +75,20 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 60
   };
 };
+
+const HeroWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  padding-top: var(--space-sm);
+  background-image: url('/rs/cracks-top.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  &:after {
+    ${runeBorder};
+    bottom: 0;
+  }
+`
 
 const TokenList = styled.div`
   width: 100%;
