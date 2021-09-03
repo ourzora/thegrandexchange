@@ -112,7 +112,8 @@ const TokenWrapper = styled.div`
       }
     }
   }
-  &.listed.Finished {
+  &.listed.Finished,
+  &.ended.Finished {
     order: -1;
     .zora-cardAuctionPricing {
       background-color: var(--yellow)!important;
