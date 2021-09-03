@@ -67,6 +67,8 @@ export const getStaticProps: GetStaticProps = async () => {
     process.env.NEXT_PUBLIC_NETWORK_ID as NetworkIDs
   );
 
+  console.log(contracts)
+
   // Dain TODO - make this dynamic.
   const loot = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
     collectionAddress: contracts[0].address as string,
@@ -82,6 +84,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const ability = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
     collectionAddress: contracts[2].address as string,
+    limit: 60,
+    offset: 0,
+  });
+
+  const settlements = await FetchStaticData.fetchZoraIndexerList(fetchAgent, {
+    collectionAddress: contracts[3].address as string,
     limit: 60,
     offset: 0,
   });
@@ -106,6 +114,13 @@ export const getStaticProps: GetStaticProps = async () => {
       symbol: 'SCORE',
       slug: 'ability-score',
       tokens: ability,
+      rarity: false
+    },
+    {
+      name: 'Settlements',
+      symbol: 'STL',
+      slug: 'settlements',
+      tokens: settlements,
       rarity: false
     }
   ]
