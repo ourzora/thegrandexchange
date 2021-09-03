@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { FloorPrices, FloorInfo } from "../utils/loot_stats";
 
 const StatsContainer = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: var(--space-md);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -23,7 +23,7 @@ const LastUpdatedContainer = styled.div`
   font-style: italic;
 `;
 
-const FloorHeader = styled.div`
+const FloorHeader = styled.h3`
   color: white;
   text-align: center;
   margin-bottom: 10px;
