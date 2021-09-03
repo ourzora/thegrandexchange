@@ -197,8 +197,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
 export const ImageWrapper = styled.div`
   width: 100%;
-  padding: var(--space-sm) 0;
+  padding: var(--space-sm) 0 0;
+  margin-bottom: var(--space-sm);
   position: relative;
+  background-image: url('/rs/cave.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
   .image-sizer {
     width: 100%;
     max-width: 800px;
@@ -233,7 +238,7 @@ export const BidButtonWrapper = styled.div`
     padding-top: 6px;
     &:after {
       content: '';
-      width: 127%;
+      width: 100%;
       height: 100%;
       position: absolute;
       top: 0;
@@ -241,17 +246,14 @@ export const BidButtonWrapper = styled.div`
       right: 0;
       bottom: 0;
       z-index: 1;
-      background: transparent url('https://www.runescape.com/img/rs3/../microsite/sprite.png') no-repeat -1924px 0;
-      transform: scale(.75);
+      background: transparent url('/rs/button.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+      transform: scale(1);
     }
     ${media.tablet`
       width: 477px;
       font-size: 40px;
-      &:after {
-        transform: scale(1);
-        width: 100%;
-        left: 0;
-      }
     `}
     span {
       color: #000;
