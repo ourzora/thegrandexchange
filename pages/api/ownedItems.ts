@@ -13,9 +13,37 @@ module.exports = async (req: any, res: any) => {
   const fetchAgent = new MediaFetchAgent(
     process.env.NEXT_PUBLIC_NETWORK_ID as any
   );
+/* 
+  async function fetchCollectionArray() {
+    let fetchedCollections = []
+    
+    const fetchPromises = contracts.map(async (id: any) => {
+      const response = await FetchStaticData.fetchUserOwnedNFTs(
+        fetchAgent,
+        {
+          collectionAddress: id.address as string || "",
+          userAddress: owner,
+          limit: 200,
+          offset: 0,
+        },
+        true
+      );
+      return response
+    });
 
-  let tokens = []
+    for (const fetchPromise of fetchPromises) {
+      const collection = await fetchPromise
+      
+      fetchedCollections.push(collection)
+    }
+    return fetchedCollections;
+  }
   
+  const tokens: any[] = await fetchCollectionArray()
+
+  */
+  
+  let tokens = []
 
   // Dain TODO - make this dynamic -> forEach async
   const loot = await FetchStaticData.fetchUserOwnedNFTs(
@@ -63,6 +91,6 @@ module.exports = async (req: any, res: any) => {
   );
 
   tokens = [...loot, ...lootRealm, ...ability, ...settlements]
-
+  
   res.status(200).json({tokens});
 };
